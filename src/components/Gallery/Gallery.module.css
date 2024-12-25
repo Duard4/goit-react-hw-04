@@ -1,7 +1,7 @@
 .galleryList {
 	margin-block: 1.5em;
-	padding-inline: 1em;
-	column-width: 320px;
+	padding-inline: min(5%, 40px);
+	column-width: 300px;
 	column-gap: 1.25em;
 }
 .galleryItem {
@@ -11,6 +11,7 @@
 		transform: scale(1.025);
 	}
 	& img {
+		width: 100%;
 		border-radius: 10px;
 	}
 }

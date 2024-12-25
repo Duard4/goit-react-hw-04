@@ -77,7 +77,7 @@ export default function App() {
 	return (
 		<>
 			<header>
-				<SearchBar onSearch={handleSearch} />
+				<SearchBar onSearch={handleSearch} toast={toast} />
 			</header>
 			<main>
 				{images.length > 0 && <Gallery images={images} open={openModal} />}

@@ -1,30 +1,24 @@
-import { useEffect } from "react";
+import ReactModal from "react-modal";
 import css from "./ImageModal.module.css";
 
-const ImageModal = ({ image, close }) => {
-	useEffect(() => {
-		const handleKeyDown = (event) => {
-			if (event.key === "Escape") close();
-		};
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [close]);
+ReactModal.setAppElement("#root");
 
+const ImageModal = ({ image, close }) => {
 	return (
-		<div
-			onClick={close}
-			className={css.backdrop}
-			role="dialog"
-			aria-modal="true"
-			aria-label={image.alt_description || "Modal Image"}
+		<ReactModal
+			isOpen={image}
+			onRequestClose={close}
+			overlayClassName={css.backdrop}
+			className={css.modalImage}
+			shouldCloseOnOverlayClick={true}
+			shouldCloseOnEsc={true}
 		>
 			<img
-				src={image.urls.regular}
-				alt={image.alt_description || "Image"}
-				className={css.modalImage}
-				onClick={(event) => event.stopPropagation()}
+				src={image?.urls.regular}
+				alt={image?.alt_description || "Image"}
+				onClick={(e) => e.stopPropagation()}
 			/>
-		</div>
+		</ReactModal>
 	);
 };
 

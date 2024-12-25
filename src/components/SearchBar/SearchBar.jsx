@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import css from "./SearchBar.module.css";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, toast }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 
 	const handleInputChange = (event) => {
@@ -13,6 +13,8 @@ const SearchBar = ({ onSearch }) => {
 		e.preventDefault();
 		if (searchTerm.trim()) {
 			onSearch(searchTerm);
+		} else {
+			toast.error("Query cannot be empty!");
 		}
 	};
 
