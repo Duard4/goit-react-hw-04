@@ -1,0 +1,16 @@
+.galleryList {
+	margin-block: 1.5em;
+	padding-inline: 1em;
+	column-width: 320px;
+	column-gap: 1.25em;
+}
+.galleryItem {
+	margin-bottom: 1.25em;
+	transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+	&:hover {
+		transform: scale(1.025);
+	}
+	& img {
+		border-radius: 10px;
+	}
+}
